@@ -20,9 +20,9 @@ The client would request documents from the server, downloads and evaluates
 the front-end assets(CSS & JS) then render the HTML.
 
 To request another page, the user would click links and then the whole process would
-repeat over and over again. The downside was the request of assests over network and then eavaluation over and over again.
+repeat over and over again. The downside was the request of assets from server over again and then evaluation.
 This impacted user experience, the client side routing promised to solve this by handling assets on the client side then requests
-left for data which needs frequent updating as opposed to the assets.
+left for only for data fetch which needs frequent updating and be in sync as opposed to the assets.
 
 ### Why react Router
 Enables client side routing.
