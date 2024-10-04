@@ -37,7 +37,13 @@ via forms.
 
 
 ### Key concepts
-1. Adding a Router
+1. Router
+
+2. Root layouts or root route
+   - This is the first route where the rest if the routes renders inside.
+   - It serves as root layout of the UI.
+
+3. Handling Not Found Errors
 
 
 
