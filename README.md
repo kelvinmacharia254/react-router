@@ -55,5 +55,11 @@ via forms.
    - URL segments, layouts and data are tied together therefore, react-router proposes a convention which 
     should be followed to load data easily.
 
-
-
+6. Working with form and react-router 
+    - Traditional HTML forms, would trigger submission of data to via GET or POST to the server including the URLSearchParams for GET.
+    - react-router-dom provides its own Form element which instead of sending request direct to server, it uses
+      client side routing to send it to a route action.
+   
+7. URL Params in Loaders
+    - Params are dynamic segments in URL which matches dynamic(changing) values e.g the Id of a single resource.
+    - Params are passed to the loader with keys that match the dynamic segment like `resources/:id`
