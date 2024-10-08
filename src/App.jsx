@@ -9,12 +9,14 @@ export default function App() {
         {
             path:"/",
             element: <Root/>,
-            errorElement: <ErrorPage/>
+            errorElement: <ErrorPage/>,
+            children:[
+                {
+                    path:"contact/:contactId",
+                    element: <Contact/>,
+                }
+            ]
         },
-        {
-            path:"contact/:contactId",
-            element: <Contact/>,
-        }
     ])
 
     return <RouterProvider router={router} />
