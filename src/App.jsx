@@ -1,6 +1,6 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
-import Root from "./routes/Root.jsx";
+import Root, {loader as rootLoader} from "./routes/Root.jsx";
 
 import ErrorPage from "./error-page.jsx";
 import Contact from "./routes/contact.jsx";
@@ -10,6 +10,7 @@ export default function App() {
             path:"/",
             element: <Root/>,
             errorElement: <ErrorPage/>,
+            loader: rootLoader,
             children:[
                 {
                     path:"contact/:contactId",

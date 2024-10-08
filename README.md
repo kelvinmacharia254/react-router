@@ -44,6 +44,16 @@ via forms.
    - It serves as root layout of the UI.
 
 3. Handling Not Found Errors
+   - create an error element and use useRouteError() to fetch errors and display on the error page.
+   - This page is listed on the errorElement property of the route
+4. Nested links
+   - When pages are nested into via the children, the parent component or page shows
+    across its children. Root page could domicile a general layout of an application, common navigation bar or even common detail for all pages.
+
+5. Loading data
+   - As we navigate the UI, our app requires contextual data which must be loaded into the app.
+   - URL segments, layouts and data are tied together therefore, react-router proposes a convention which 
+    should be followed to load data easily.
 
 
 
