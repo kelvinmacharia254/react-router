@@ -48,18 +48,22 @@ via forms.
    - This page is listed on the errorElement property of the route
 4. Nested links
    - When pages are nested into via the children, the parent component or page shows
-    across its children. Root page could domicile a general layout of an application, common navigation bar or even common detail for all pages.
+    across its children. Root page could contain a general layout of an application, common navigation bar or even common detail for all pages.
+   - We use ```<Link>``` provided the ```react-router-dom``` which renders the requested UI route without sending a request(page refresh) as with traditional html <a> tag.
 
-5. Loading data
+5. Loading data and URL Params
+     ### Loaders
    - As we navigate the UI, our app requires contextual data which must be loaded into the app.
    - URL segments, layouts and data are tied together therefore, react-router proposes a convention which 
     should be followed to load data easily.
+   - We use ```loader``` & ```useLoaderData``` APIs to load data. 
+   - Loader functions are used to load data into the different pages mostly from backend APIs keeping the UI synchronized with the data source.
+     ### URL Params in Loaders
+    - Params are dynamic segments in URL which matches dynamic(changing) values e.g. the Id of a single resource.
+    - Params are passed to the loader with keys that match the dynamic segment like `resources/:id`
 
 6. Working with form and react-router 
-    - Traditional HTML forms, would trigger submission of data to via GET or POST to the server including the URLSearchParams for GET.
+    - Traditional HTML forms, would trigger submission of data to via ```GET``` or ```POST``` to the server including the URLSearchParams for GET.
     - react-router-dom provides its own Form element which instead of sending request direct to server, it uses
       client side routing to send it to a route action.
-   
-7. URL Params in Loaders
-    - Params are dynamic segments in URL which matches dynamic(changing) values e.g the Id of a single resource.
-    - Params are passed to the loader with keys that match the dynamic segment like `resources/:id`
+    - 
