@@ -62,10 +62,40 @@ via forms.
     - Params are dynamic segments in URL which matches dynamic(changing) values e.g. the Id of a single resource.
     - Params are passed to the loader with keys that match the dynamic segment like `resources/:id`
 
-6. Working with form and react-router 
+6. Working with forms and react-router 
     - Traditional HTML forms, would trigger submission of data to via ```GET``` or ```POST``` to the server including the URLSearchParams for GET.
     - react-router-dom provides its own Form element which instead of sending request direct to server, it uses
       client side routing to send it to a route action which may be a function making ```POST``` http request to APIs.
-    - The actions makes ```POST``` which means data has been updated which requires synchronization with the UI, this where
+    - The actions make ```POST``` which means data has been updated which requires synchronization with the UI, this where
       ```react-route-dom``` internal mechanism comes in where the useLoaderData hooks triggers automatic UI update with the latest data.
     - In others words ```useLoaderData``` carries the work of ```useState ```hook, ```onSubmit``` handlers, ```useEffect``` hook etc
+   
+    - The React ```Form``` element prevents default form submission, the FormData in the body of the request is intercepted and sent to the action provided to the Form host route.
+    - Each form field is accessed with ```formData.get(name)```. We could code the action like this:
+     
+   ```jsx
+      export async function action({ request, params }) {
+        const formData = await request.formData();
+        const firstName = formData.get("first");
+        const lastName = formData.get("last");
+        // ...
+       }
+   ```
+    - However, we can conveniently use ```Object.fromEntries``` to collect all fields.
+   ```jsx
+        export async function action({ request, params }) {
+            const formData = await request.formData();
+            const data = Object.fromEntries(formData);
+            // ...
+         }
+   ```
+    - NB. ```requests```, ```request.formData``` & ```Object.fromEntries``` APIs are all provide by the browser.
+    - Finally, the action must return a response, often a redirect page
+    ```jsx
+        export async function action({ request, params }) {
+            const formData = await request.formData();
+            const data = Object.fromEntries(formData);
+            // ...
+            return redirect(`/resources/${id}`);
+         }
+    ```
