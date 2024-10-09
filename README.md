@@ -65,5 +65,7 @@ via forms.
 6. Working with form and react-router 
     - Traditional HTML forms, would trigger submission of data to via ```GET``` or ```POST``` to the server including the URLSearchParams for GET.
     - react-router-dom provides its own Form element which instead of sending request direct to server, it uses
-      client side routing to send it to a route action.
-    - 
+      client side routing to send it to a route action which may be a function making ```POST``` http request to APIs.
+    - The actions makes ```POST``` which means data has been updated which requires synchronization with the UI, this where
+      ```react-route-dom``` internal mechanism comes in where the useLoaderData hooks triggers automatic UI update with the latest data.
+    - In others words ```useLoaderData``` carries the work of ```useState ```hook, ```onSubmit``` handlers, ```useEffect``` hook etc
