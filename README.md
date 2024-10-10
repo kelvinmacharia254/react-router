@@ -147,3 +147,7 @@ via forms.
             return redirect(`/resources/${id}`);
          }
     ```
+7. Active Link Styling
+   - Active link styling is a common feature in web apps that highlights the current page in the navigation bar.
+   - React Router provides a NavLink component that allows you to style active links.
+   - We can still use <a> to refer to the <NavLink>, CSS will still apply because NavLink renders an anchor tag (<a>) under the hood.
