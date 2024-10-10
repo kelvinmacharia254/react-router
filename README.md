@@ -44,10 +44,11 @@ via forms.
    - The root route acts as the base layout for the entire app.
    - All other routes (pages) are nested inside the root layout. This layout usually includes common elements such as a navigation bar or a footer.
 
-3. Handling Not Found Errors
-   - You can handle 404 Not Found errors by defining an error element.
-   - Use useRouteError() to access the error and display it on a custom error page.
-   - This page is set using the errorElement property in the route definition.
+3. Handling Errors
+   - Errors like 404 Not Found can be handled by defining an error element.
+   - Use useRouteError() to access the error details to display on a custom error page.
+   - We can have an errorElement for each route or set one on the root element to ensure a consistent error page across the app.
+
 4. Nested links
    - React Router supports nested routes, meaning child routes can be rendered inside parent routes.
    - This is useful for layouts that are consistent across multiple pages (e.g., a shared sidebar or navigation menu).
