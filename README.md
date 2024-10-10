@@ -110,7 +110,7 @@ via forms.
          }
      ````
 
-6. Working with forms and react-router 
+6. Form submission 
     - Traditional HTML forms, would trigger submission of data to via ```GET``` or ```POST``` to the server including the URLSearchParams for GET.
     - react-router-dom provides its own Form element which instead of sending request direct to server, it uses
       client side routing to send it to a route action which may be a function making ```POST``` http request to APIs.
@@ -147,6 +147,12 @@ via forms.
             return redirect(`/resources/${id}`);
          }
     ```
+   
+   ### Action Matching
+   - The form’s action attribute is crucial for routing. It must correspond to a defined route that can handle the operation.
+   - For example, if the form specifies ```action="destroy"```, there needs to be a route defined e.g., ```contact/:contactId/destroy``` that can process this action.
+   - The action route must be defined in the router and have an action function that processes the form submission.
+   
 7. Active Link Styling
    - Active link styling is a common feature in web apps that highlights the current page in the navigation bar.
    - Allows users to know where they are on the page they are currently on.

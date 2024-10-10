@@ -3,9 +3,11 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Root, {loader as rootLoader, action as rootAction} from "./routes/Root.jsx";
 
 import ErrorPage from "./error-page.jsx";
-import Contact,{loader as contactLoader} from "./routes/contact.jsx";
+import Contact,{loader as contactLoader} from "./routes/Contact.jsx";
 
 import EditContact, {action as editAction} from "./routes/EditContact.jsx";
+
+import {action as destroyAction} from "./routes/Destroy.jsx";
 export default function App() {
     const router = createBrowserRouter([
         {
@@ -25,6 +27,10 @@ export default function App() {
                     element: <EditContact/>,
                     loader: contactLoader,
                     action: editAction,
+                },
+                {
+                    path:"contact/:contactId/destroy",
+                    action: destroyAction,
                 }
             ]
         },
