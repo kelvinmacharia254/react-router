@@ -87,27 +87,28 @@ via forms.
                );
            }
        ```
-      - Loader functions load data into the different pages often from backend APIs keeping the UI synchronized with the data source.
    
-     ```jsx
-        export async function loader({ params }) {
-            const response = await fetch(`/api/resources/${params.id}`);
-            if (!response.ok) throw new Error(response.statusText);
-            return response.json();
-        }
-     ```
+       - The loader function is an async function that fetches data from an API or other source.
+   
+      ```jsx
+         export async function loader({ params }) {
+             const response = await fetch(`/api/resources/${params.id}`);
+             if (!response.ok) throw new Error(response.statusText);
+             return response.json();
+         }
+      ```
 
-     ### URL Params in Loaders
-    - Params are dynamic segments in URL which matches dynamic(changing) values e.g. the Id of a single resource.
-    - Params are passed to the loader with keys that match the dynamic segment like `resources/:id`
+      ### URL Params in Loaders
+     - Params are dynamic segments in URL which matches dynamic(changing) values e.g. the Id of a single resource.
+     - Params are passed to the loader with keys that match the dynamic segment like `resources/:id`
      
-    ````jsx
-        export async function loader({ params }) {
-            const response = await fetch(`/api/resources/${params.id}`);
-            if (!response.ok) throw new Error(response.statusText);
-            return response.json();
-        }
-    ````
+     ````jsx
+         export async function loader({ params }) {
+             const response = await fetch(`/api/resources/${params.id}`);
+             if (!response.ok) throw new Error(response.statusText);
+             return response.json();
+         }
+     ````
 
 6. Working with forms and react-router 
     - Traditional HTML forms, would trigger submission of data to via ```GET``` or ```POST``` to the server including the URLSearchParams for GET.
