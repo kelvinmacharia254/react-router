@@ -31,6 +31,11 @@ export default function App() {
                 {
                     path:"contact/:contactId/destroy",
                     action: destroyAction,
+                    errorElement:
+                        <div>Not happening. You can't delete a contact.<br/>
+                            This error is just to show you how to handle errors in an action.<br/>
+                            Disable in `Destroy.jsx` to proceed.<br/>
+                        </div>
                 }
             ]
         },
