@@ -149,5 +149,15 @@ via forms.
     ```
 7. Active Link Styling
    - Active link styling is a common feature in web apps that highlights the current page in the navigation bar.
+   - Allows users to know where they are on the page they are currently on.
    - React Router provides a NavLink component that allows you to style active links.
    - We can still use <a> to refer to the <NavLink>, CSS will still apply because NavLink renders an anchor tag (<a>) under the hood.
+
+8. App Responsiveness cues.
+   - App responsiveness cues are visual indicators that inform users that the app is working on a task.
+   - They are especially useful when the app is performing a task that takes time to complete.
+   - React Router provides a some hooks that can signal to the user that the application is busy doing something.
+   - We can use useNavigation() hook to add a global pending UI.
+   - The useNavigation hook is used to determine the current navigation state of the application, it returns the current navigation state which can be one of "idle" | "submitting" | "loading".
+   - Depending on the state we can apply some CSS to show the user that the app is busy by using this state to apply css class conditionally.
+   - Due to caching, the response is usually faster as the data is not fetched again, so the CSS may not be visible at times
