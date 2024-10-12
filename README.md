@@ -174,3 +174,7 @@ via forms.
    - They are useful for displaying a default page when the user lands on the app. The index routes are also known as default child route.
    - React Router provides a Route component that can be used to define index routes.
      - We use ```{index: true}``` to define an index route instead of ```{path: """}``` like with all other path.
+
+10. Navigation in react router using code.
+   - Navigation in React Router can be done using the useNavigate hook which is put inside say button click event handler.
+   - In this project, we implement this on the ```cancel button``` on the ```EditContact``` route.
