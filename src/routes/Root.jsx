@@ -8,13 +8,14 @@ import {
 } from "react-router-dom";
 
 import {getContacts, createContact} from "../contacts.js";
+import {useEffect} from "react";
 
 export async function loader({request}){
   // get search query
   const url = new URL(request.url);
   const q = url.searchParams.get("q");
   const contacts = await getContacts(q);
-  return {contacts}
+  return {contacts, q}
 }
 
 export async function action(){
@@ -24,8 +25,12 @@ export async function action(){
 
 
 export default function Root() {
-  const {contacts} = useLoaderData();
+  const {contacts, q} = useLoaderData();
     const navigation = useNavigation();
+
+    useEffect(()=>{
+      document.getElementById("q").value = q;
+    })
 
   return (
     <>
@@ -39,6 +44,7 @@ export default function Root() {
               placeholder="Search"
               type="search"
               name="q"
+              defaultValue={q}
             />
             <div
               id="search-spinner"

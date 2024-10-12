@@ -173,14 +173,13 @@ via forms.
    - Index routes are routes that are displayed when the user navigates to the root URL of the app.
    - They are useful for displaying a default page when the user lands on the app. The index routes are also known as default child route.
    - React Router provides a Route component that can be used to define index routes.
-     - We use ```{index: true}``` to define an index route instead of ```{path: """}``` like with all other path.
+   - We use ```{index: true}``` to define an index route instead of ```{path: """}``` like with all other path.
 
 10. Navigation in react router using code.
-   - Navigation in React Router can be done using the useNavigate hook which is put inside say button click event handler.
+- Navigation in React Router can be done using the useNavigate hook which is put inside say button click event handler.
    - In this project, we implement this on the ```cancel button``` on the ```EditContact``` route.
 
-
-10. URL Search Params
+11. URL Search Params
    - forms can be used to submit data to the server using the GET method, which appends the form data to the URL as query parameters.
    - GET method is usually default for forms.
    - The request contains an url that can be used to get the search params.
@@ -198,4 +197,17 @@ via forms.
 
    - Note, unlike POST, GET method does not require an action to be defined in the router.
    - When submitting a form with the GET method, the form data is appended to the URL as query parameters which is like clicking a link 
-     only that the URL is updated with the form data which the loader uses to filter
+     only that the URL is updated with the form data which the loader uses to filter.
+
+12. Synchronizing URLs to Form State
+   - When a form is submitted, the URL is updated with the form data.
+   - The form data is used to filter the data displayed on the page.
+     ### How are forms and the URL out of sync?
+   - i. However, if you click the browser back button after search, the form still retains the search query but the URL does not, also the data is not filtered.
+   - ii. If the page is refreshed, the search query is cleared on the form but the URL still retains the search query, again the data is not filtered.
+     
+     ### How to synchronize the form and the URL?
+      First things first, the query should be stored when a search is trigger, then:
+   - i. Sync form and url when back button is pressed by use of useEffect() hook to clear the form input by setting it to the value of search query which is empty.
+   - ii. Sync form and url when page is refreshed by including a default value to the form input field.
+     
