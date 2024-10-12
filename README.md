@@ -161,14 +161,19 @@ via forms.
    - We can still use <a> to refer to the <NavLink>, CSS will still apply because NavLink renders an anchor tag (<a>) under the hood.
 
 8. App Responsiveness cues.
-   - App responsiveness cues are visual indicators that inform users that the app is working on a task.
-   - They are especially useful when the app is performing a task that takes time to complete.
-   - React Router provides a some hooks that can signal to the user that the application is busy doing something.
-   - We can use useNavigation() hook to add a global pending UI.
-   - The useNavigation hook is used to determine the current navigation state of the application, it returns the current navigation state which can be one of "idle" | "submitting" | "loading".
-   - Depending on the state we can apply some CSS to show the user that the app is busy by using this state to apply css class conditionally.
-   - Due to caching, the response is usually faster as the data is not fetched again, so the CSS may not be visible at times
-
+      ### What are app responsiveness cues?
+      - App responsiveness cues are visual indicators that inform users that the app is working on a task.
+      - They are especially useful when the app is performing a task that takes time to complete.
+      - React Router provides a some hooks that can signal to the user that the application is busy doing something.
+      - We can use useNavigation() hook to check the state of the navigation and apply CSS conditionally by adding background overlay or a spinner.
+   
+      ### Applying CSS to show the app is busy like a background overlay
+      - The useNavigation hook is used to determine the current navigation state of the application, it returns the current navigation state which can be one of "idle" | "submitting" | "loading".
+      - Depending on the state we can apply some CSS to show the user that the app is busy by using this state to apply css class conditionally.
+      - Due to caching, the response is usually faster as the data is not fetched again, so the CSS may not be visible at times
+      ### Showing spinner when the app is busy
+      - We can also show a spinner when the app is busy by using the useNavigation hook to check the state of the navigation and apply CSS to show the spinner.
+      
 9. Index Routes
    - Index routes are routes that are displayed when the user navigates to the root URL of the app.
    - They are useful for displaying a default page when the user lands on the app. The index routes are also known as default child route.
@@ -214,4 +219,3 @@ via forms.
 13. Submitting form with onChange event
     - Useful if we want to submit the form as soon as the user types in the input field instead of waiting for the user to click the submit button or press ```Enter``` key.
     - We can use the ```onChange``` event to submit the form as soon as the user types in the input field together with the ```useSubmit``` hook.
-    

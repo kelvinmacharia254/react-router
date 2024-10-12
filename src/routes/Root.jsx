@@ -30,6 +30,12 @@ export default function Root() {
   const navigation = useNavigation();
   const submit = useSubmit();
 
+  // set boolean to check if search is in progress
+  // two conditions includes: if location exists and if the query exists
+  // if both conditions are met, set searching to true and vice versa
+  // this will be used to show the spinner conditionally
+  const searching =
+      navigation.location && new URLSearchParams(navigation.location.search).has("q");
     useEffect(()=>{
       document.getElementById("q").value = q;
     })
@@ -54,7 +60,7 @@ export default function Root() {
             <div
               id="search-spinner"
               aria-hidden
-              hidden={true}
+              hidden={!searching}
             />
             <div
               className="sr-only"
