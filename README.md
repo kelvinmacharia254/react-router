@@ -168,3 +168,9 @@ via forms.
    - The useNavigation hook is used to determine the current navigation state of the application, it returns the current navigation state which can be one of "idle" | "submitting" | "loading".
    - Depending on the state we can apply some CSS to show the user that the app is busy by using this state to apply css class conditionally.
    - Due to caching, the response is usually faster as the data is not fetched again, so the CSS may not be visible at times
+
+9. Index Routes
+   - Index routes are routes that are displayed when the user navigates to the root URL of the app.
+   - They are useful for displaying a default page when the user lands on the app. The index routes are also known as default child route.
+   - React Router provides a Route component that can be used to define index routes.
+     - We use ```{index: true}``` to define an index route instead of ```{path: """}``` like with all other path.
