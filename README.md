@@ -178,3 +178,24 @@ via forms.
 10. Navigation in react router using code.
    - Navigation in React Router can be done using the useNavigate hook which is put inside say button click event handler.
    - In this project, we implement this on the ```cancel button``` on the ```EditContact``` route.
+
+
+10. URL Search Params
+   - forms can be used to submit data to the server using the GET method, which appends the form data to the URL as query parameters.
+   - GET method is usually default for forms.
+   - The request contains an url that can be used to get the search params.
+   - The search params can be used to get the query parameters from the URL.
+   - When the form is submitted, the URL is updated with the query parameters.
+    ```http://127.0.0.1:5173/?q=goodluck```, the query parameter is ```q=goodluck```
+   - The search params can be used to get the query parameters from the URL. like this:
+   ```jsx
+       export async function loader({ request }) {
+           const searchParams = new URL(request.url);
+           const query = searchParams.get("q"); // q is the name given to the form input field
+           // ...
+       }
+   ```
+
+   - Note, unlike POST, GET method does not require an action to be defined in the router.
+   - When submitting a form with the GET method, the form data is appended to the URL as query parameters which is like clicking a link 
+     only that the URL is updated with the form data which the loader uses to filter
