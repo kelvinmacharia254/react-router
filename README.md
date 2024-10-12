@@ -211,3 +211,7 @@ via forms.
    - i. Sync form and url when back button is pressed by use of useEffect() hook to clear the form input by setting it to the value of search query which is empty.
    - ii. Sync form and url when page is refreshed by including a default value to the form input field.
      
+13. Submitting form with onChange event
+    - Useful if we want to submit the form as soon as the user types in the input field instead of waiting for the user to click the submit button or press ```Enter``` key.
+    - We can use the ```onChange``` event to submit the form as soon as the user types in the input field together with the ```useSubmit``` hook.
+    
