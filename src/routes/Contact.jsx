@@ -90,7 +90,12 @@ export default function Contact() {
 
 function Favorite({ contact }) {
   const fetcher = useFetcher()
-  const favorite = contact.favorite;
+    // intercept the form data to get the favorite value
+    // update the UI optimistically, failure cause a rollback
+  const favorite = fetcher.formData
+    ? fetcher.formData.get("favorite") === "true"
+      : contact.favorite;
+
   return (
     <fetcher.Form method="post">
       <button

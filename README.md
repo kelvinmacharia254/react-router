@@ -233,6 +233,12 @@ via forms.
 
 15. Form submission without navigation
     - This is useful when we want to submit a form without navigating to a new page e.g feedbacks forms or email subscription forms etc
-    - React-router provides the ```useFetcher``` which allows interaction with the loaders an action without requiring a redirect or navigation to a new page.
-    
-    - In our project, we have favourite star next to the list of contact. To star, thr favourite must be update to true
+    - React-router provides the ```useFetcher``` which allows interaction with the loaders and actions without requiring a redirect or navigation to a new page.
+    - In our project, we have making a contact as a favourite next to each contact on the list. To star, the favourite must be updated to true.
+    - We use the ```useFetcher``` hook to update the boolean value of the favourite to true without navigating to a new page which then loaded and UI updated with the latest data.
+
+16. Optimistically rendering the UI
+    - Optimistic rendering is a technique that updates the UI immediately after a user action, without waiting for the server response.
+    - This technique improves the user experience by making the app feel faster and more responsive.
+    - In our project, we have implemented optimistic rendering when a contact is made a favourite by changing the star icon to yellow immediately after the user clicks on it before even the backend data is updated.
+    - In case of failure, the UI is rolled back to the previous state.
