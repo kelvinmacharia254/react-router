@@ -54,7 +54,10 @@ export default function Root() {
               name="q"
               defaultValue={q}
               onChange ={(event) => {
-                submit(event.currentTarget.form)
+                // check if the search is the first search
+                const isFirstSearch = q == null
+                // submit the form with the replace option
+                submit(event.currentTarget.form,{replace:isFirstSearch})
               }}
             />
             <div

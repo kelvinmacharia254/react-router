@@ -219,3 +219,14 @@ via forms.
 13. Submitting form with onChange event
     - Useful if we want to submit the form as soon as the user types in the input field instead of waiting for the user to click the submit button or press ```Enter``` key.
     - We can use the ```onChange``` event to submit the form as soon as the user types in the input field together with the ```useSubmit``` hook.
+
+14. History stack
+    - The history stack is a list of URLs that the user has visited in the current session.
+    - The history stack is used to navigate between pages like going back and forth in the app without refreshing the browser.
+    - With that said, the history Object provides methods to assist us interact to get desired results.
+    
+    - In the project, we are able to do a search of the contact, the search is triggered(form submission) with each keystroke in the search input field.
+    - Each keystroke results in a new URL which is added to the history stack but this only clutters the history stack with unnecessary URLs.
+    - To avoid this, we can use the ```replace``` method of the history object to replace the current URL with the new URL.
+    - We have created a flag ```isFirstSearch``` to check if the search is the first search, if it we add an entry to the history stack, if not we replace the current URL with the new URL.
+    - Remember, the search query must be returned by the loader function to filter the data displayed on the page and also helpe in managing the history stack.
