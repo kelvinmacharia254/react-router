@@ -230,3 +230,9 @@ via forms.
     - To avoid this, we can use the ```replace``` method of the history object to replace the current URL with the new URL.
     - We have created a flag ```isFirstSearch``` to check if the search is the first search, if it we add an entry to the history stack, if not we replace the current URL with the new URL.
     - Remember, the search query must be returned by the loader function to filter the data displayed on the page and also helpe in managing the history stack.
+
+15. Form submission without navigation
+    - This is useful when we want to submit a form without navigating to a new page e.g feedbacks forms or email subscription forms etc
+    - React-router provides the ```useFetcher``` which allows interaction with the loaders an action without requiring a redirect or navigation to a new page.
+    
+    - In our project, we have favourite star next to the list of contact. To star, thr favourite must be update to true
